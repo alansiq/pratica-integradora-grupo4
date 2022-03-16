@@ -8,7 +8,7 @@ public class Main {
         Cliente cliente2 = new Cliente(2L, "Hugo", "Fellipe");
         Cliente cliente3 = new Cliente(3L, "Alan", "Siqueira");
 
-        LinkedList<Cliente> clientes = new LinkedList<Cliente>();
+        LinkedList<Cliente> clientes = new LinkedList<>();
         clientes.add(cliente1);
         clientes.add(cliente2);
         clientes.add(cliente3);
