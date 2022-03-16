@@ -17,4 +17,15 @@ public class Item {
     private int quantidadeComprada;
     private BigDecimal custoUnitario;
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "codigoProduto=" + codigoProduto +
+                " nomeProduto='" + nomeProduto + '\'' +
+                ", quantidadeComprada=" + quantidadeComprada +
+                ", custoUnitario=" + custoUnitario +
+                "}";
+    }
 }
+
+

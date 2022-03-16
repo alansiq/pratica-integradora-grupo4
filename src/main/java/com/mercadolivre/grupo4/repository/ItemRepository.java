@@ -5,6 +5,7 @@ import com.mercadolivre.grupo4.interfaces.Crud;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Getter
 public class ItemRepository implements Crud <Item> {
@@ -17,8 +18,9 @@ public class ItemRepository implements Crud <Item> {
     }
 
     @Override
-    public Item read(Item o) {
-        return null;
+    public void read() {
+        String collect = listaItens.stream().map(cliente -> cliente.toString()).collect(Collectors.joining(",\n"));
+        System.out.println(collect);
     }
 
     @Override

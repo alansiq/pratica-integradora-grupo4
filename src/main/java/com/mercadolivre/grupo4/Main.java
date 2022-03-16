@@ -27,12 +27,10 @@ public class Main {
         clienteRepository.create(cliente2);
         clienteRepository.create(cliente3);
 
-        // apagar
-        LinkedList<Cliente> clientes = new LinkedList<>();
-        clientes.add(cliente1);
-        clientes.add(cliente2);
-        clientes.add(cliente3);
-        //=======
+        System.out.println("printando clientes");
+        clienteRepository.read();
+
+
 
         Item item1 = new Item(1L, "tomate", 10, new BigDecimal(2.00));
         Item item2 = new Item(2L, "cenoura", 12, new BigDecimal(0.50));
@@ -43,34 +41,26 @@ public class Main {
         itemRepository.create(item2);
         itemRepository.create(item3);
         itemRepository.create(item4);
+        System.out.println("printando itens");
+        itemRepository.read();
 
-        Fatura fatura1 = new Fatura(new Cliente(4L, "Mari", "Rod"), itemRepository.getListaItens(), new BigDecimal(50));
-
+        System.out.println("printando faturas");
+        Fatura fatura1 = new Fatura(new Cliente(4L, "Mari", "Rod"), itemRepository.getListaItens());
         faturaRepository.criarFatura(fatura1,clienteRepository);
+        faturaRepository.read();
 
-        String collect = clientes.stream().map(cliente -> cliente.toString()).collect(Collectors.joining(",\n"));
-        System.out.println(collect);
+//        try {
+//            long idCliente = scan.nextLong();
+//
+//            Optional<Cliente> infoCliente = clientes.stream().filter(cliente -> cliente.getId() == idCliente).findAny();
+//
+//            System.out.println(infoCliente.get().toString());
+//        } catch (InputMismatchException e) {
+//            System.out.println("Digite um ID de cliente válido.");
+//        } catch (NoSuchElementException e) {
+//            System.out.println("ID não encontrado.");
+//        }
 
-        clientes.remove(cliente1);
-
-        collect = clientes.stream().map(cliente -> cliente.toString()).collect(Collectors.joining(",\n"));
-        System.out.println("------------------------------------------");
-        System.out.println(collect);
-
-        System.out.println("------------------------------------------");
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Digite o ID do cliente: ");
-        try {
-            long idCliente = scan.nextLong();
-
-            Optional<Cliente> infoCliente = clientes.stream().filter(cliente -> cliente.getId() == idCliente).findAny();
-
-            System.out.println(infoCliente.get().toString());
-        } catch (InputMismatchException e) {
-            System.out.println("Digite um ID de cliente válido.");
-        } catch (NoSuchElementException e) {
-            System.out.println("ID não encontrado.");
-        }
 
     }
 }

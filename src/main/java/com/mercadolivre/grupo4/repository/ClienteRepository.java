@@ -6,6 +6,7 @@ import lombok.Getter;
 
 import java.util.LinkedList;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Getter
 public class ClienteRepository implements Crud<Cliente> {
@@ -19,8 +20,9 @@ public class ClienteRepository implements Crud<Cliente> {
     }
 
     @Override
-    public Cliente read(Cliente o) {
-        return null;
+    public void read() {
+        String collect = listaClientes.stream().map(cliente -> cliente.toString()).collect(Collectors.joining(",\n"));
+        System.out.println(collect);
     }
 
     @Override

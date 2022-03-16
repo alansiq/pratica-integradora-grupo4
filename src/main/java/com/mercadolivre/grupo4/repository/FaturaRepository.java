@@ -4,9 +4,11 @@ import com.mercadolivre.grupo4.Cliente;
 import com.mercadolivre.grupo4.classes.Fatura;
 import com.mercadolivre.grupo4.interfaces.Crud;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class FaturaRepository implements Crud <Fatura> {
 
@@ -19,8 +21,9 @@ public class FaturaRepository implements Crud <Fatura> {
     }
 
     @Override
-    public Fatura read(Fatura o) {
-        return null;
+    public void read() {
+        String collect = listaFaturas.stream().map(fatura -> fatura.toString()).collect(Collectors.joining(",\n"));
+        System.out.println(collect);
     }
 
     @Override
@@ -39,7 +42,11 @@ public class FaturaRepository implements Crud <Fatura> {
         }else {
             System.out.println("adicionando cliente na lista");
             listaClientes.create(fatura.getCliente());
-
+            create(fatura);
         }
+
+
     }
+
+
 }
