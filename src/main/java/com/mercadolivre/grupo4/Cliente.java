@@ -13,10 +13,10 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", sobrenome='" + sobrenome + '\'' +
+        return "{" +
+                "id:" + id +
+                ", nome:'" + nome + '\'' +
+                ", sobrenome:'" + sobrenome + '\'' +
                 '}';
     }
 }
