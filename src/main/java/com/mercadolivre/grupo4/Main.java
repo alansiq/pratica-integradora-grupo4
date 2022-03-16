@@ -1,6 +1,9 @@
 package com.mercadolivre.grupo4;
 
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -23,7 +26,17 @@ public class Main {
         System.out.println("------------------------------------------");
         System.out.println(collect);
 
+        System.out.println("------------------------------------------");
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Digite o ID do cliente: ");
+        long idCliente = scan.nextLong();
+        Optional<Cliente> infoCliente = clientes.stream().filter(cliente -> cliente.getId() == idCliente).findAny();
 
+        try {
+            System.out.println(infoCliente.get().toString());
+        } catch (NoSuchElementException e) {
+            System.out.println("ID não encontrado.");
+        }
 
     }
 }
