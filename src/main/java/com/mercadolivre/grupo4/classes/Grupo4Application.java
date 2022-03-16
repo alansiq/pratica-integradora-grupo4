@@ -1,4 +1,4 @@
-package com.mercadolivre.grupo4;
+package com.mercadolivre.grupo4.classes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
