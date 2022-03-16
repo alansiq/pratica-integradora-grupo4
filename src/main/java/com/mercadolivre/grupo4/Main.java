@@ -17,5 +17,13 @@ public class Main {
         String collect = clientes.stream().map(cliente -> cliente.toString()).collect(Collectors.joining(",\n"));
         System.out.println(collect);
 
+        clientes.remove(cliente1);
+
+        collect = clientes.stream().map(cliente -> cliente.toString()).collect(Collectors.joining(",\n"));
+        System.out.println("------------------------------------------");
+        System.out.println(collect);
+
+
+
     }
 }
